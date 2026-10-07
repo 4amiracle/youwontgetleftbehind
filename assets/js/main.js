@@ -37,6 +37,33 @@
   tick();
   setInterval(tick, 30000);
 
+  // Terminal greeting: time-of-day hello first, "let's learn together" last,
+  // and the lines in between take turns leading on each visit.
+  var typerEl = document.querySelector('[data-typer]');
+  if (typerEl) {
+    var hr = new Date().getHours();
+    var hello = hr >= 5 && hr < 12 ? 'good morning' : hr >= 12 && hr < 17 ? 'good afternoon' : 'good evening';
+    var middle = [
+      ["it's ok to feel behind or stuck."],
+      ['everyone is starting somewhere.', 'and so are computers.'],
+      ['hello world.']
+    ];
+    var visit = 0;
+    try {
+      visit = parseInt(localStorage.getItem('ywglb-visits') || '0', 10) || 0;
+      localStorage.setItem('ywglb-visits', String(visit + 1));
+    } catch (e) {
+      visit = Math.floor(Math.random() * middle.length);
+    }
+    var shift = visit % middle.length;
+    var ordered = middle.slice(shift).concat(middle.slice(0, shift));
+    if (visit % 2) ordered = [ordered[0]].concat(ordered.slice(1).reverse());
+    var lines = [hello + ', beautiful human.'];
+    ordered.forEach(function (group) { lines = lines.concat(group); });
+    lines.push("let's learn together");
+    typerEl.textContent = lines.map(function (l) { return '> ' + l; }).join('\n');
+  }
+
   // Terminal typing
   var typer = document.querySelector('[data-typer]');
   if (typer) {
@@ -52,7 +79,7 @@
         typer.innerHTML = escapeHtml(full.slice(0, i)) + caret;
         if (i < full.length) {
           var ch = full.charAt(i - 1);
-          setTimeout(type, ch === '\n' ? 520 : 38 + Math.random() * 50);
+          setTimeout(type, ch === '\n' ? 380 : 26 + Math.random() * 36);
         }
       };
       setTimeout(type, 600);

@@ -1,13 +1,13 @@
 <header class="nav">
   <a class="wordmark" href="{{ '/' | relative_url }}" aria-label="You Won't Get Left Behind — home">
-    <span class="wordmark-dot" aria-hidden="true"></span>you won't get left behind<span class="cursor" aria-hidden="true">_</span>
+    <span class="wordmark-dot" aria-hidden="true"></span><span class="wordmark-text"><span>you won't get</span> <span>left behind<span class="cursor" aria-hidden="true">_</span></span></span>
   </a>
   <button class="nav-toggle" aria-expanded="false" aria-controls="nav-links">menu</button>
   <nav id="nav-links" class="nav-links">
-    <a href="{{ '/learn/' | relative_url }}" {% if page.url contains '/learn' %}aria-current="page"{% endif %}>Learn</a>
-    <a href="{{ '/lead/' | relative_url }}" {% if page.url contains '/lead' %}aria-current="page"{% endif %}>Lead change</a>
-    <a href="{{ '/together/' | relative_url }}" {% if page.url contains '/together' %}aria-current="page"{% endif %}>Together</a>
-    <a href="{{ '/about/' | relative_url }}" {% if page.url contains '/about' %}aria-current="page"{% endif %}>About</a>
-    <a class="btn btn-ink btn-sm" href="{{ '/#join' | relative_url }}">Join in</a>
+    <a class="btn btn-ghost btn-sm" href="{{ '/learn/' | relative_url }}" {% if page.url contains '/learn' %}aria-current="page"{% endif %}>Learn</a>
+    <a class="btn btn-ghost btn-sm" href="{{ '/lead/' | relative_url }}" {% if page.url contains '/lead' %}aria-current="page"{% endif %}>Lead change</a>
+    <a class="btn btn-ghost btn-sm" href="{{ '/together/' | relative_url }}" {% if page.url contains '/together' %}aria-current="page"{% endif %}>Together</a>
+    <a class="btn btn-ghost btn-sm" href="{{ '/about/' | relative_url }}" {% if page.url contains '/about' %}aria-current="page"{% endif %}>About</a>
+    <a class="btn btn-clay btn-sm" href="{{ '/#join' | relative_url }}">Join in</a>
   </nav>
 </header>

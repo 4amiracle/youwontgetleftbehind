@@ -135,6 +135,7 @@ a { color: inherit; }
   border: 1.5px solid var(--ink);
   transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
   cursor: pointer;
+  white-space: nowrap;
 }
 .btn:hover { transform: translate(-2px, -2px); box-shadow: 3px 3px 0 var(--ink); }
 .btn-ink { background: var(--ink); color: var(--paper); }
@@ -182,7 +183,18 @@ a { color: inherit; }
 .cursor { animation: blink 1.1s steps(1) infinite; }
 @keyframes blink { 50% { opacity: 0; } }
 
-.nav-links { display: flex; align-items: center; gap: 26px; }
+.nav-links { display: flex; align-items: center; gap: 8px; }
+.wordmark-text { display: inline-flex; gap: 1ch; }
+/* current page: same outlined pill, plus a sun dot that says "you are here" */
+.nav-links .btn-ghost[aria-current="page"] { background: color-mix(in srgb, var(--sun) 22%, transparent); }
+.nav-links .btn-ghost[aria-current="page"]::before {
+  content: "";
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: var(--clay);
+  margin-left: -4px;
+}
+.btn-clay:hover { box-shadow: 3px 3px 0 var(--ink); }
 .nav-links a:not(.btn) {
   font-size: 0.94rem;
   text-decoration: none;
@@ -191,7 +203,7 @@ a { color: inherit; }
 }
 .nav-links a:not(.btn):hover,
 .nav-links a[aria-current="page"] { color: var(--ink); }
-.nav-links a[aria-current="page"] { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px; }
+.nav-links a[aria-current="page"]:not(.btn) { text-decoration: underline; text-underline-offset: 6px; text-decoration-thickness: 1.5px; }
 .nav-toggle {
   display: none;
   font: 500 0.8rem var(--mono);
@@ -221,6 +233,9 @@ a { color: inherit; }
 [data-sky="night"] .home .nav:not(.scrolled) .nav-links a:not(.btn),
 [data-sky="night"] .home .nav:not(.scrolled) .nav-toggle { color: var(--paper); border-color: var(--paper); }
 [data-sky="night"] .home .nav:not(.scrolled) .btn-ink { background: var(--paper); color: var(--ink); border-color: var(--paper); }
+[data-sky="night"] .home .nav:not(.scrolled) .btn-ghost { color: var(--paper); border-color: var(--paper); }
+[data-sky="night"] .home .nav:not(.scrolled) .btn-clay { border-color: var(--clay); }
+[data-sky="night"] .home .nav:not(.scrolled) .btn:hover { box-shadow: 3px 3px 0 var(--phosphor); }
 .home .nav.scrolled { background: color-mix(in srgb, var(--paper) 88%, transparent); border-bottom-color: var(--line); }
 
 .sky {
@@ -326,7 +341,7 @@ a { color: inherit; }
 .terminal {
   position: relative;
   background: var(--crt);
-  min-height: 250px;
+  min-height: 290px;
   padding: 22px 22px 26px;
 }
 .terminal::after {
@@ -542,7 +557,12 @@ section { position: relative; }
 }
 
 /* ---------- inner pages ---------- */
-.page-hero { padding: clamp(70px, 10vw, 130px) 0 clamp(50px, 7vw, 80px); border-bottom: 1.5px solid var(--ink); }
+.page-hero {
+  padding: clamp(70px, 10vw, 130px) 0 clamp(50px, 7vw, 80px);
+  border-bottom: 1.5px solid var(--ink);
+  background: linear-gradient(180deg, color-mix(in srgb, var(--sky-top) 45%, var(--paper)) 0%, color-mix(in srgb, var(--sky-bottom) 25%, var(--paper)) 70%, var(--paper) 100%);
+}
+[data-sky="night"] .page-hero { background: linear-gradient(180deg, color-mix(in srgb, var(--sky-top) 18%, var(--paper)) 0%, var(--paper) 100%); }
 .page-section { padding: clamp(60px, 8vw, 110px) 0; border-bottom: 1px solid var(--line); }
 .page-section:last-of-type { border-bottom: 0; }
 .split { display: grid; grid-template-columns: 0.8fr 1.2fr; gap: clamp(28px, 6vw, 90px); }
@@ -625,7 +645,19 @@ section { position: relative; }
   .sun { right: 6%; top: 8%; opacity: 0.85; }
 }
 
-@media (max-width: 760px) {
+/* Tablet: keep every nav button visible (touch users shouldn't hunt behind a menu).
+   The brand lockup stacks onto two lines to make room. */
+@media (min-width: 681px) and (max-width: 1080px) {
+  .wordmark-text { flex-direction: column; gap: 0; line-height: 1.15; }
+  .nav-links { gap: 6px; }
+  .nav-links .btn-sm { padding: 9px 13px; }
+}
+/* Touch screens get finger-sized buttons (44px, Apple's minimum) */
+@media (pointer: coarse) and (min-width: 681px) {
+  .nav-links .btn-sm { min-height: 44px; }
+}
+
+@media (max-width: 680px) {
   .nav-toggle { display: inline-block; }
   .nav-links {
     position: absolute;
@@ -641,9 +673,14 @@ section { position: relative; }
   }
   .nav-links.open { display: flex; }
   .nav-links a:not(.btn) { font-size: 1.15rem; padding: 8px 0; color: var(--ink) !important; }
-  .nav-links .btn { margin-top: 10px; }
+  .nav-links { gap: 10px; }
+  .nav-links .btn { font-size: 1rem; padding: 12px 20px; }
+  [data-sky="night"] .home .nav .nav-links .btn-ghost { color: var(--ink); border-color: var(--ink); }
   [data-sky="night"] .home .nav .nav-links .btn-ink,
   [data-sky="night"] .home .nav:not(.scrolled) .nav-links .btn-ink { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+}
+
+@media (max-width: 760px) {
   .wordmark { font-size: 0.78rem; }
   .prompt-cards li:nth-child(even) { transform: rotate(0.6deg); }
   .post-list a { grid-template-columns: 1fr auto; grid-template-areas: "date arrow" "title arrow" "excerpt arrow"; }
@@ -667,7 +704,7 @@ section { position: relative; }
   /* prompt cards: keep tilt, drop sideways shift */
   .prompt-cards li { font-size: 1.2rem; padding: 16px 18px; }
   .window { box-shadow: 5px 5px 0 var(--ink); }
-  .terminal { min-height: 210px; }
+  .terminal { min-height: 270px; padding: 18px 16px 22px; }
 }
 
 @media (prefers-reduced-motion: reduce) {

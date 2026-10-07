@@ -17,6 +17,11 @@
       var h = new Date().getHours();
       var sky = h >= 5 && h < 8 ? 'dawn' : h >= 8 && h < 17 ? 'day' : h >= 17 && h < 20 ? 'dusk' : 'night';
       document.documentElement.setAttribute('data-sky', sky);
+      var bar = { dawn: '#C7C3E6', day: '#F3EEE3', dusk: '#A39BCF', night: '#0B0F1E' };
+      var m = document.createElement('meta');
+      m.name = 'theme-color';
+      m.content = bar[sky];
+      document.head.appendChild(m);
     })();
   </script>
 </head>
