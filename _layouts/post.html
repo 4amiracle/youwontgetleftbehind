@@ -1,0 +1,14 @@
+---
+layout: default
+---
+<article class="post">
+  <header class="post-head wrap-narrow">
+    <a class="mono-label back" href="{{ '/' | append: page.categories[0] | append: '/' | relative_url }}">← {{ page.categories[0] | replace: 'lead', 'lead change' }}</a>
+    <h1 class="h1">{{ page.title }}</h1>
+    <p class="mono post-meta">{{ page.date | date: "%B %-d, %Y" }}{% if page.read %} · {{ page.read }} read{% endif %}</p>
+  </header>
+  <div class="prose wrap-narrow">
+    {{ content }}
+  </div>
+</article>
+{% include idea-box.html %}

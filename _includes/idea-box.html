@@ -1,0 +1,20 @@
+<section class="join" id="join">
+  <div class="wrap join-grid">
+    <div>
+      <p class="mono-label">Community · open door</p>
+      <h2 class="h2">Bring a question.<br><em>Bring a fear.</em> Bring an idea.</h2>
+      <p class="lede">This place gets built with the people who show up. Tell me what you're curious about, what's worrying you, or what you'd love to make. The best ones become workshops, conversations, and things we build together, live.</p>
+      {% if site.idea_form_url != "" %}
+        <a class="btn btn-clay" href="{{ site.idea_form_url }}" target="_blank" rel="noopener">Open the idea box →</a>
+      {% else %}
+        <span class="btn btn-clay is-soon" aria-disabled="true">Idea box opens soon</span>
+      {% endif %}
+    </div>
+    <ul class="prompt-cards" aria-label="Example prompts">
+      <li><span class="mono">01</span> "I don't even know what to ask."</li>
+      <li><span class="mono">02</span> "My team is scared this replaces them."</li>
+      <li><span class="mono">03</span> "I have an idea but I can't code."</li>
+      <li><span class="mono">04</span> "Can we build it together on a call?"</li>
+    </ul>
+  </div>
+</section>

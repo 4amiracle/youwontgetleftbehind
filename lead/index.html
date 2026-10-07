@@ -1,0 +1,33 @@
+---
+layout: page
+title: Lead change
+permalink: /lead/
+eyebrow: For teams & leaders
+heading: Technology changes fast. <em>People change at people speed.</em>
+lede: The hard part of AI isn't the software. It's habits, fear, identity, and trust. This is where we talk about the human side of change.
+description: The people side of AI adoption, including behavior change, fear, and trust.
+---
+<section class="page-section">
+  <div class="wrap split">
+    <div>
+      <p class="mono-label">What I'm learning</p>
+      <h2 class="h2">Principles for leading people through it.</h2>
+    </div>
+    <div class="cards">
+      <div class="card"><span class="mono">01</span><h3>Name the fear out loud</h3><p>"Will this replace me?" is the real question in the room. Answer it honestly before anything else.</p></div>
+      <div class="card"><span class="mono">02</span><h3>Make it safe to be bad at it</h3><p>Nobody learns while they're trying to look like they already know.</p></div>
+      <div class="card"><span class="mono">03</span><h3>Start with one tiny habit</h3><p>Behavior changes through small, repeated wins, not mandates or launch emails.</p></div>
+      <div class="card"><span class="mono">04</span><h3>Learn alongside, not ahead</h3><p>Leaders who show their own learning give everyone else permission to try.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="wrap">
+    <p class="mono-label">Writing on change</p>
+    {% assign posts = site.categories.lead %}
+    {% if posts %}{% include post-list.html posts=posts %}{% else %}<p class="empty-note">&gt; first essays loading_</p>{% endif %}
+  </div>
+</section>
+
+{% include idea-box.html %}

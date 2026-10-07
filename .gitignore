@@ -1,0 +1,6 @@
+_site/
+.jekyll-cache/
+vendor/
+.bundle/
+.DS_Store
+.claude/

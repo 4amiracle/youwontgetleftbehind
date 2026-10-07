@@ -1,0 +1,33 @@
+---
+layout: page
+title: Learn
+permalink: /learn/
+eyebrow: For the curious & the nervous
+heading: Learn AI in <em>plain language.</em>
+lede: No jargon, no hype, no dumb questions. Just one human figuring it out and writing it down so you don't have to start from scratch.
+description: AI explained in plain language for people who feel behind.
+---
+<section class="page-section">
+  <div class="wrap split">
+    <div>
+      <p class="mono-label">Start here</p>
+      <h2 class="h2">Four ideas that make the rest easier.</h2>
+    </div>
+    <div class="cards">
+      <div class="card"><span class="mono">01</span><h3>It predicts, it doesn't know</h3><p>AI tools guess the most likely next word. That's why they can be brilliant and confidently wrong.</p></div>
+      <div class="card"><span class="mono">02</span><h3>You're the editor</h3><p>Treat what it gives you as a first draft from a fast, eager intern. You still decide.</p></div>
+      <div class="card"><span class="mono">03</span><h3>Talk to it like a person</h3><p>Context, examples, and "here's what I'm really trying to do" beat clever tricks.</p></div>
+      <div class="card"><span class="mono">04</span><h3>Small and often wins</h3><p>Ten minutes a day beats a weekend binge. Curiosity compounds.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="wrap">
+    <p class="mono-label">Notes &amp; lessons</p>
+    {% assign posts = site.categories.learn %}
+    {% if posts %}{% include post-list.html posts=posts %}{% else %}<p class="empty-note">&gt; first lessons loading_</p>{% endif %}
+  </div>
+</section>
+
+{% include idea-box.html %}

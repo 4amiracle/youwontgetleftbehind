@@ -1,0 +1,23 @@
+<footer class="footer">
+  <div class="footer-top">
+    <p class="footer-big">Humans first.<br><em>Always.</em></p>
+    <div class="footer-cols">
+      <div>
+        <p class="mono-label">Explore</p>
+        <a href="{{ '/learn/' | relative_url }}">Learn</a>
+        <a href="{{ '/lead/' | relative_url }}">Lead change</a>
+        <a href="{{ '/together/' | relative_url }}">Together</a>
+        <a href="{{ '/about/' | relative_url }}">About</a>
+      </div>
+      <div>
+        <p class="mono-label">Right now</p>
+        <p class="footer-clock"><span data-clock>--:--</span> where you are</p>
+        <p class="footer-note" data-daynote>The sky is doing something worth seeing.</p>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom mono">
+    <span>Made by humans, with help from machines.</span>
+    <span>&copy; {{ 'now' | date: '%Y' }} · Learning out loud</span>
+  </div>
+</footer>

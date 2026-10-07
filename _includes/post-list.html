@@ -1,0 +1,12 @@
+<ul class="post-list">
+  {% for post in include.posts %}
+  <li>
+    <a href="{{ post.url | relative_url }}">
+      <span class="mono">{{ post.date | date: "%m.%d.%y" }}</span>
+      <span class="post-title">{{ post.title }}</span>
+      <span class="post-excerpt">{{ post.description }}</span>
+      <span class="arrow" aria-hidden="true">→</span>
+    </a>
+  </li>
+  {% endfor %}
+</ul>
