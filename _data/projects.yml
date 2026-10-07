@@ -1,0 +1,19 @@
+# Things Mira is building. Add, remove, or reorder freely.
+# status: live | building | soon
+- name: You Won't Get Left Behind
+  kind: This site
+  status: building
+  blurb: Built by talking out loud to Claude and learning Claude Code as I go. You're watching it happen.
+  url: /
+  internal: true
+
+- name: Couch Kid
+  kind: Side project
+  status: live
+  blurb: A podcast and brand about emotional vulnerability. Every emotion deserves a seat on the couch.
+  url: https://couch-kid.com
+
+- name: Yoga teacher training
+  kind: In progress
+  status: soon
+  blurb: Learning to hold space for bodies and breath, the very offline kind of presence.

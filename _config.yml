@@ -11,3 +11,6 @@ exclude:
   - Publish.command
   - README.md
   - vendor
+# Social links (leave blank to hide)
+instagram_url: ""
+linkedin_url: ""

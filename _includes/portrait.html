@@ -1,0 +1,17 @@
+{% assign photo_file = site.static_files | where: "path", page.photo | first %}
+<figure class="portrait">
+  <div class="portrait-back" aria-hidden="true"></div>
+  <div class="portrait-frame">
+    {% if photo_file %}
+      <img src="{{ page.photo | relative_url }}" alt="{{ page.photo_alt | default: 'Portrait of Mira' }}" loading="eager">
+    {% else %}
+      <div class="portrait-placeholder" role="img" aria-label="A small landscape: sun over a green hill, standing in for a portrait">
+        <span class="pp-sun"></span>
+        <span class="pp-hill"></span>
+        <span class="pp-hill pp-hill-2"></span>
+      </div>
+    {% endif %}
+    <span class="portrait-grain" aria-hidden="true"></span>
+  </div>
+  <figcaption class="mono">[ {{ page.photo_caption | default: "mira · learning out loud" }} ]</figcaption>
+</figure>

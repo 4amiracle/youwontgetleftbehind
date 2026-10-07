@@ -4,20 +4,105 @@ title: About
 permalink: /about/
 eyebrow: About
 heading: Hi, I'm Mira. <em>I'm learning too.</em>
-lede: I started this because I felt it too, the worry that the world was speeding up without me. So I decided to learn out loud and bring people with me.
-description: Why You Won't Get Left Behind exists.
+lede: "I started this because I felt weird holding two truths: I work in tech, and I desperately want to become a Luddite. The only thing that made it feel better was talking to other people who felt the same. People who didn't claim to know everything, but wanted to put community first."
+lede_close: You won't get left behind, because <em>we'll get through this together.</em>
+description: Mira's story, and why You Won't Get Left Behind exists.
+# Drop a photo at this path to replace the placeholder
+photo: /assets/img/mira.jpg
+photo_alt: Mira, smiling, outdoors
 ---
 <section class="page-section">
   <div class="wrap split">
     <div>
-      <p class="mono-label">Why this exists</p>
-      <h2 class="h2">Nobody should have to figure this out alone.</h2>
+      <p class="mono-label">How it started</p>
+      <h2 class="h2">On a couch, with my best friend, <em>one night.</em></h2>
     </div>
-    <div class="prose" style="padding-bottom:0">
-      <p>Every big leap in technology, from the printing press to the personal computer to the phone in your pocket, left some people feeling like they'd missed the train. AI is that moment for a lot of us.</p>
-      <p>I'm not an engineer or an AI researcher. I'm a curious person who decided to stop feeling behind and start learning in public: the questions, the wins, the embarrassing mistakes. If I can do it, you can too.</p>
-      <p>This is a place to learn together, talk honestly about how change feels, and build real things side by side. And then to log off, go outside, and remember we're humans on a pretty incredible planet.</p>
-      <p><a href="{{ '/#join' | relative_url }}">Come say hi →</a></p>
+    <div class="prose prose-flush">
+      <p>I kept going to tech conferences and hearing people talk about AI with a confidence and poise I didn't feel. I didn't want to become another expert. I wanted to be another voice in the mix, one that could bring people together at the community level.</p>
+      <p>My best friend nudged me to take the leap. So I downloaded Claude, paid for a monthly subscription, and started talking to it out loud, transcribing my thoughts and asking it to help me build websites for the things I care about.</p>
+      <p>That's how I'm learning Claude Code: by making personal projects I'm passionate about, so one day I can bring that confidence into my full-time work. This website is one of them. It's being built the same way, in real time, as I talk.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="wrap split">
+    <div>
+      <p class="mono-label">Who I am</p>
+      <h2 class="h2">A people person who ended up in tech.</h2>
+    </div>
+    <div class="prose prose-flush">
+      <p>I've worked in tech for the past four years, after a short stint in food and beverage. Through all of it, my work has been about people: diversity, equity, inclusion, and belonging.</p>
+      <p>Right now I'm most passionate about helping people in non-technical roles build skills with AI, and about giving us room to talk honestly about the anxiety and pressure we feel as humans working in tech. I want to get all of us into one room so we can help each other, teach each other, and let some of that fear go.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="wrap split">
+    <div>
+      <p class="mono-label">Why me</p>
+      <h2 class="h2">Because I'm <em>not</em> an expert.</h2>
+    </div>
+    <div class="prose prose-flush">
+      <p>I'm not going to tell you I know everything. I won't hand you the perfect prompt or a clever acronym for writing one.</p>
+      <p>What I will tell you is that it's a wild time to be alive, and you deserve to play. Figure things out. Make mistakes, break things, and build them back up, as long as you're keeping your data and yourself safe.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="wrap split">
+    <div>
+      <p class="mono-label">Eyes open</p>
+      <h2 class="h2">Curious, and honest about the cost.</h2>
+    </div>
+    <div class="prose prose-flush">
+      <p>Morning, afternoon, and night, AI is changing people's lives and livelihoods. It raises real questions about equity, social justice, energy, and sustainability. Learning these tools doesn't mean looking away from any of that.</p>
+      <p>Using tools that can feel at odds with what we believe will test our moral compass. Sometimes it will shift. Often it will hold, and we'll stay true to who we are. Both deserve a place in the conversation.</p>
+    </div>
+  </div>
+</section>
+
+<section class="page-section community-note">
+  <div class="wrap">
+    <p class="mono-label">What I'm building</p>
+    <h2 class="h2 community-line">A community of people who've been touched by tech and <em>still want to do good in the world.</em></h2>
+  </div>
+</section>
+
+<section class="page-section" id="projects">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="mono-label">Projects · updated as I go</p>
+      <h2 class="h2">What I'm working on <em>right now.</em></h2>
+    </div>
+    <ul class="projects">
+      {% for p in site.data.projects %}
+      <li class="project">
+        {% if p.url %}<a href="{% if p.internal %}{{ p.url | relative_url }}{% else %}{{ p.url }}{% endif %}"{% unless p.internal %} target="_blank" rel="noopener"{% endunless %}>{% else %}<div>{% endif %}
+          <span class="project-status status-{{ p.status }} mono"><span class="status-dot" aria-hidden="true"></span>{% case p.status %}{% when 'live' %}live{% when 'building' %}building now{% else %}coming soon{% endcase %}</span>
+          <p class="mono-label">{{ p.kind }}</p>
+          <h3>{{ p.name }}</h3>
+          <p>{{ p.blurb }}</p>
+          {% if p.url %}<span class="path-go">{% if p.internal %}You're here{% else %}Visit ↗{% endif %}</span>{% endif %}
+        {% if p.url %}</a>{% else %}</div>{% endif %}
+      </li>
+      {% endfor %}
+    </ul>
+  </div>
+</section>
+
+<section class="page-section">
+  <div class="wrap split">
+    <div>
+      <p class="mono-label">Find me</p>
+      <h2 class="h2">Come say hi.</h2>
+    </div>
+    <div class="find-me">
+      {% if site.instagram_url and site.instagram_url != "" %}<a class="btn btn-ghost" href="{{ site.instagram_url }}" target="_blank" rel="noopener">Instagram ↗</a>{% endif %}
+      {% if site.linkedin_url and site.linkedin_url != "" %}<a class="btn btn-ghost" href="{{ site.linkedin_url }}" target="_blank" rel="noopener">LinkedIn ↗</a>{% endif %}
+      <a class="btn btn-clay" href="{{ '/#join' | relative_url }}">Join in →</a>
     </div>
   </div>
 </section>
